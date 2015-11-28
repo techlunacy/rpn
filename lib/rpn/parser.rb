@@ -22,8 +22,7 @@ module RPN
             raise MalformedStringError.new("Offending token: #{element}")
           end
         else
-          element =~ /\./ ? element.to_f\
-                          : element.to_i
+          element.to_f
         end
       end
     end
