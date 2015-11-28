@@ -26,7 +26,7 @@ module RPN
       end
       raise UnsolvableExpressionError\
             .new("The final stack contained more than one value: #{elements.inspect}") if size > 1
-      elements.first.to_s("%g")
+      elements.first
     end
 
     def push token
