@@ -14,7 +14,7 @@ module RPN
       clear
       tokens.each do |token|
         if Numeric === token
-          push token
+          push token.to_f
           next
         end
         raise InsufficientValuesAvailable\
@@ -26,7 +26,7 @@ module RPN
       end
       raise UnsolvableExpressionError\
             .new("The final stack contained more than one value: #{elements.inspect}") if size > 1
-      elements.first
+      elements.first.to_s("%g")
     end
 
     def push token
